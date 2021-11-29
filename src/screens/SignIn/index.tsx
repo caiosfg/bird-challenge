@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
-import { Text, View, TextInput } from 'react-native';
+import React from 'react';
+import { Text, View, Image, StatusBar } from 'react-native';
 import { styles } from './styles';
+import Folder from '../../assets/folder.png'
+import { ButtonIcon } from '../../components/ButtonIcon'
+
 
 export function SignIn() {
 
-    const [text, setText] = useState('');
-
     return (
         <View style={styles.container}>
-            <Text>Bird Challenge, seu contador de cantos.</Text>
-            <Text>
-                Seja Bem-vindo: {text}
-            </Text>
-            <TextInput
-                style={styles.input}
-                onChangeText={setText}
-            />
+
+            <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
+            <Image source={Folder} style={styles.image} resizeMode="stretch" />
+
+            <View style={styles.content}>
+                <Text style={styles.title}>
+                    Coletor de cantos {`\n`}
+                    em campeonatos
+                </Text>
+
+                <Text style={styles.subtitle}>
+                    Crie, compartilhe com seus amigos
+                </Text>
+
+                <ButtonIcon title="Clique para Entrar" />
+            </View>
         </View>
     );
 }
